@@ -96,7 +96,7 @@ Function GetColumnList($FileNameFullPath) {
             $stringParts = $line.split(" ")
             $partsCount = $stringParts.Count
             $columnName = $stringParts[0]
-            if (($partsCount -gt 3) -and ( $columnName -ne '(') -and ($columnName -ne ')') -and ( $WithFlag -eq '0')  )  
+            if (($partsCount -ge 3) -and ( $columnName -ne '(') -and ($columnName -ne ')') -and ( $WithFlag -eq '0')  )  
             {
                 $i++ 
                 $columnName = $stringParts[0]
