@@ -152,6 +152,7 @@ ForEach ($csvItem in $csvTablesCfgFile)
         $TargetSchema = $csvItem.TargetSchema
         $SourceTable = $csvItem.SourceTable
         $TargetTable = $csvItem.TargetTable
+        $TruncateTable = $csvItem.TruncateTable
         $IdentityInsert = $csvItem.IdentityInsert
         $InputFolder = $csvItem.InputFolder
         $OutputFolder = $csvItem.OutputFolder
@@ -190,9 +191,12 @@ ForEach ($csvItem in $csvTablesCfgFile)
         "-- Code Generated at " + $CodeGenerationTime >> $OutputFileFullPath
         " " >> $OutputFileFullPath
 
-        "Truncate Table " + $TargetSchema + "." + $TargetTable >> $OutputFileFullPath
-        " " >> $OutputFileFullPath
-
+        If ($TruncateTable.ToUpper() -eq 'YES')
+        {
+            "TRUNCATE TABLE " + $TargetSchema + "." + $TargetTable >> $OutputFileFullPath
+            " " >> $OutputFileFullPath
+        }
+       
         If ($IdentityInsert.ToUpper() -eq 'YES')
         {
             $TableColumns = GetColumnList $InputFileFullPath
@@ -218,7 +222,6 @@ ForEach ($csvItem in $csvTablesCfgFile)
             }
             ")" >>  $OutputFileFullPath
             "SELECT " >> $OutputFileFullPath
-            #"(" >> $OutputFileFullPath
             For ($i=1; $i -le $columCount; $i++)
             {
                 if ($i -eq ($columCount))
@@ -231,7 +234,6 @@ ForEach ($csvItem in $csvTablesCfgFile)
                 }
              
             }
-            #")" >>  $OutputFileFullPath
             "FROM " + $SourceSchema + "." + $SourceTable >> $OutputFileFullPath
 
             " " >>  $OutputFileFullPath
