@@ -1,4 +1,4 @@
-﻿Active,SourceSchema,TargetSchema,SourceTable,TargetTable,IdentityInsert,InputFolder,OutputFolder
-0,This line is for documentation only. PowerShell Script will ignore this ,,,,,This is where your .SQL DDL files are:,
-1,Source_Schema_Name_Here,Target_Schema_Name_Here,Table_1_Name,Table_1_Name,,C:\Z_Scripts\Test\FromFilesFolder,C:\Z_Scripts\Test\OutputFilesFolder
-1,Source_Schema_Name_Here,Target_Schema_Name_Here,Table_2_Name,Table_2_Name,Yes,C:\Z_Scripts\Test\FromFilesFolder,C:\Z_Scripts\Test\OutputFilesFolder
+﻿Active,SourceSchema,TargetSchema,SourceTable,TargetTable,TruncateTable,IdentityInsert,InputFolder,OutputFolder
+0,This line is for documentation only. PowerShell Script will ignore this ,,,,,,This is where your .SQL DDL files are:,
+1,Source_Schema_Name_Here,Target_Schema_Name_Here,Table_1_Name,Table_1_Name,Yes,,C:\Z_Scripts\Test\FromFilesFolder,C:\Z_Scripts\Test\OutputFilesFolder
+1,Source_Schema_Name_Here,Target_Schema_Name_Here,Table_2_Name,Table_2_Name,,Yes,C:\Z_Scripts\Test\FromFilesFolder,C:\Z_Scripts\Test\OutputFilesFolder
